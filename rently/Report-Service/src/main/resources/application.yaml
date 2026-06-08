@@ -1,0 +1,10 @@
+spring:
+  application:
+   name: report
+  cloud:
+    discovery:
+      enabled: true
+  config:
+    import: "configserver:http://localhost:8888"
+server:
+    port: 3003

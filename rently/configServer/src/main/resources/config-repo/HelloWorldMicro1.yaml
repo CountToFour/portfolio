@@ -1,0 +1,11 @@
+server:
+  port: 3005
+eureka:
+  instance:
+    prefer-ip-address: false
+    hostname: localhost
+#openapi:
+#  v3:
+#    servers:
+#      - url: /rentlyauth
+#        description: Adres przez API Gateway

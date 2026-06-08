@@ -1,0 +1,6 @@
+server:
+  port: 3004
+eureka:
+  instance:
+    prefer-ip-address: false
+    hostname: localhost

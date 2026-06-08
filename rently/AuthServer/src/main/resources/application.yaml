@@ -1,0 +1,7 @@
+spring:
+  config:
+    import: "configserver:http://host.docker.internal:8888"
+  application:
+    name: rentlyauth
+  profiles:
+    active: ${ACTIVE_PROFILE:dev}

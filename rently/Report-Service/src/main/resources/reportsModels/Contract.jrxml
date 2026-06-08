@@ -1,0 +1,139 @@
+<!-- Created with Jaspersoft Studio version 7.0.2.final using JasperReports Library version 7.0.2-31532122640f516c6d17238ae0e41a08113d5ac0  -->
+<jasperReport name="Contract" language="java" columnCount="1" pageWidth="595" pageHeight="902" whenNoDataType="BlankPage" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4ecc5c5a-e7d2-4277-9d8b-0e720efce377">
+	<parameter name="Data" class="java.time.LocalDate"/>
+	<parameter name="location" class="java.lang.String"/>
+	<parameter name="rooms" class="java.lang.Integer"/>
+	<parameter name="city" class="java.lang.String"/>
+	<parameter name="landlordName" class="java.lang.String"/>
+	<parameter name="landlordCity" class="java.lang.String"/>
+	<parameter name="landlordAddress" class="java.lang.String"/>
+	<parameter name="landlordIdNumber" class="java.lang.String"/>
+	<parameter name="tenantName" class="java.lang.String"/>
+	<parameter name="tenantCity" class="java.lang.String"/>
+	<parameter name="tenantAddress" class="java.lang.String"/>
+	<parameter name="tenantIdNumber" class="java.lang.String"/>
+	<parameter name="area" class="java.lang.Double"/>
+	<parameter name="sinceDate" class="java.time.LocalDate"/>
+	<parameter name="untilDate" class="java.time.LocalDate"/>
+	<parameter name="fee" class="java.lang.Double"/>
+	<parameter name="payDay" class="java.lang.Integer"/>
+	<parameter name="transmissionDate" class="java.time.LocalDate"/>
+	<parameter name="deposit" class="java.lang.Double"/>
+	<query language="sql"><![CDATA[]]></query>
+	<background splitType="Stretch"/>
+	<detail>
+		<band height="862" splitType="Stretch">
+			<element kind="staticText" uuid="ee088b50-38fa-430d-8ae5-f3932db772a9" x="117" y="-10" width="320" height="30" fontName="Arial" fontSize="19.0" bold="true">
+				<text><![CDATA[Umowa najmu lokalu mieszkalnego]]></text>
+			</element>
+			<element kind="staticText" uuid="f49a8a00-c19e-4a26-bed8-8b5609113872" x="0" y="30" width="555" height="802" fontName="Arial" fontSize="14.0" pdfFontName="Helvetica" pdfEncoding="Cp1250" pdfEmbedded="true" hTextAlign="Left">
+				<paragraph lineSpacing="1_1_2"/>
+				<text><![CDATA[Zawarta w dniu ………………… r. w ……………… pomiędzy:
+1) ……………………….........…, zamieszkałym/-łą
+w ……………………. przy ul. ………......................………, legitymującym/-cą się dowodem osobistym seria i nr ………………………, zwanym/-ną dalej Wynajmującym/-cą,
+a
+2) ………………………..........…., zamieszkałym/-łą
+w ………………………, przy ul. ……...........................………, legitymującym/-cą się dowodem osobistym seria i nr …………………………., zwanym/-ną dalej Najemcą,
+o treści następującej:
+                                                               § 1
+Wynajmujący/-ca oświadcza, że jest właścicielem/-lką lokalu mieszkalnego o pow. ………………. mkw., składającego się z …… pokoi, przedpokoju, łazienki i kuchni, położonego w ….............................…………………………………..
+                                                               § 2
+Wynajmująca oddaje Najemcy do używania ww. lokal wraz z wyposażeniem.
+                                                               § 3
+Umowa zostaje zawarta na okres od ..….................. do …..........................
+                                                               § 4
+Najemca zobowiązuje się do zapłaty Wynajmującemu/-cej czynszu najmu w wysokości ………………….. zł miesięcznie. Czynsz będzie płatny z góry w terminie do ……… każdego miesiąca.
+                                                               § 5
+Opłaty za wodę, gaz, c.o. i energię elektryczną pokrywa Najemca.
+                                                               § 6
+Najemca zobowiązuje się do wykorzystywania lokalu wyłącznie na cele mieszkaniowe.
+                                                               § 7
+Najemca nie ma prawa do podnajmowania mieszkania ani jego części osobom trzecim.
+                                                               § 8
+Wydanie lokalu Najemcy nastąpi w dniu …........................... .
+                                                               § 9
+W kwestii wypowiedzenia niniejszej umowy zastosowanie mają przepisy Kodeksu cywilnego ]]></text>
+				<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			</element>
+			<element kind="textField" uuid="4d3be6a2-1641-46c4-9da0-5892090331df" x="100" y="27" width="100" height="20" fontName="Arial" fontSize="14.0" pdfFontName="Helvetica" pdfEncoding="Cp1250" pdfEmbedded="true">
+				<expression><![CDATA[$P{Data}.format(java.time.format.DateTimeFormatter.ofPattern("dd.MM.yyyy"))]]></expression>
+			</element>
+			<element kind="textField" uuid="4f47bf8d-f3ed-4ca5-8356-845b029aac8f" x="258" y="294" width="100" height="20" fontName="Arial" fontSize="14.0" pdfFontName="Helvetica" pdfEncoding="Cp1250" pdfEmbedded="true">
+				<expression><![CDATA[$P{rooms}]]></expression>
+			</element>
+			<element kind="textField" uuid="818f6bf7-710e-42a2-b85b-24442788eddd" x="235" y="27" width="83" height="20" fontName="Arial" fontSize="14.0" pdfFontName="Helvetica" pdfEncoding="Cp1250" pdfEmbedded="true">
+				<expression><![CDATA[$P{city}]]></expression>
+			</element>
+			<element kind="textField" uuid="11dc42db-73c0-41e5-a48a-cc7c55c5a975" x="17" y="49" width="173" height="20" fontName="Arial" fontSize="14.0" pdfFontName="Helvetica" pdfEncoding="Cp1250" pdfEmbedded="true">
+				<expression><![CDATA[$P{landlordName}]]></expression>
+			</element>
+			<element kind="textField" uuid="0784cd16-beef-4c35-9385-937f24da8f58" x="17" y="72" width="113" height="20" fontName="Arial" fontSize="14.0" pdfFontName="Helvetica" pdfEncoding="Cp1250" pdfEmbedded="true">
+				<expression><![CDATA[$P{landlordCity}]]></expression>
+			</element>
+			<element kind="textField" uuid="fe862415-ee3c-44b0-bae1-68ff09e06ace" x="190" y="72" width="170" height="20" fontName="Arial" fontSize="14.0" pdfFontName="Helvetica" pdfEncoding="Cp1250" pdfEmbedded="true">
+				<expression><![CDATA[$P{landlordAddress}]]></expression>
+			</element>
+			<element kind="textField" uuid="90e4d959-9cf3-4104-a5a4-d3cac3027842" x="190" y="94" width="123" height="20" fontName="Arial" fontSize="14.0" pdfFontName="Helvetica" pdfEncoding="Cp1250" pdfEmbedded="true">
+				<expression><![CDATA[$P{landlordIdNumber}]]></expression>
+			</element>
+			<element kind="textField" uuid="36a72b8e-4bda-415f-ab55-cf7782b73011" x="17" y="161" width="183" height="20" fontName="Arial" fontSize="14.0" pdfFontName="Helvetica" pdfEncoding="Cp1250" pdfEmbedded="true">
+				<expression><![CDATA[$P{tenantName}]]></expression>
+			</element>
+			<element kind="textField" uuid="f5e83daf-4238-4933-babc-5750f358ee39" x="17" y="183" width="123" height="20" fontName="Arial" fontSize="14.0" pdfFontName="Helvetica" pdfEncoding="Cp1250" pdfEmbedded="true">
+				<expression><![CDATA[$P{tenantCity}]]></expression>
+			</element>
+			<element kind="textField" uuid="52492368-9e1b-4dc1-985f-7a5db7ea5132" x="200" y="183" width="180" height="20" fontName="Arial" fontSize="14.0" pdfFontName="Helvetica" pdfEncoding="Cp1250" pdfEmbedded="true">
+				<expression><![CDATA[$P{tenantAddress}]]></expression>
+			</element>
+			<element kind="textField" uuid="f01131d7-43c4-430f-9948-898af5dc5ed4" x="190" y="205" width="140" height="20" fontName="Arial" fontSize="14.0" pdfFontName="Helvetica" pdfEncoding="Cp1250" pdfEmbedded="true">
+				<expression><![CDATA[$P{tenantIdNumber}]]></expression>
+			</element>
+			<element kind="textField" uuid="4f47bf8d-f3ed-4ca5-8356-845b029aac8f" x="5" y="294" width="90" height="20" fontName="Arial" fontSize="14.0" pdfFontName="Helvetica" pdfEncoding="Cp1250" pdfEmbedded="true">
+				<expression><![CDATA[$P{area}]]></expression>
+			</element>
+			<element kind="textField" uuid="4f47bf8d-f3ed-4ca5-8356-845b029aac8f" x="100" y="316" width="300" height="20" fontName="Arial" fontSize="14.0" pdfFontName="Helvetica" pdfEncoding="Cp1250" pdfEmbedded="true">
+				<expression><![CDATA[$P{location}]]></expression>
+			</element>
+			<element kind="textField" uuid="7d98b1c5-6521-4f0b-b3cd-9be87f55caff" x="235" y="405" width="93" height="20" fontName="Arial" fontSize="14.0" pdfFontName="Helvetica" pdfEncoding="Cp1250" pdfEmbedded="true">
+				<expression><![CDATA[$P{sinceDate}.format(java.time.format.DateTimeFormatter.ofPattern("dd.MM.yyyy"))]]></expression>
+			</element>
+			<element kind="textField" uuid="75f30609-2991-42d3-8bac-c4381f1654af" x="350" y="405" width="93" height="20" fontName="Arial" fontSize="14.0" pdfFontName="Helvetica" pdfEncoding="Cp1250" pdfEmbedded="true">
+				<expression><![CDATA[$P{untilDate}.format(java.time.format.DateTimeFormatter.ofPattern("dd.MM.yyyy"))]]></expression>
+			</element>
+			<element kind="textField" uuid="a7708bf3-6fee-4957-9d5f-63d8f12c8050" x="5" y="472" width="100" height="20" fontName="Arial" fontSize="14.0" pdfFontName="Helvetica" pdfEncoding="Cp1250" pdfEmbedded="true">
+				<expression><![CDATA[$P{fee}]]></expression>
+			</element>
+			<element kind="textField" uuid="be622c56-ee4d-4366-a8ea-efba57ab3c2d" x="480" y="472" width="100" height="20" fontName="Arial" fontSize="14.0" pdfFontName="Helvetica" pdfEncoding="Cp1250" pdfEmbedded="true">
+				<expression><![CDATA[$P{payDay}]]></expression>
+			</element>
+			<element kind="textField" uuid="2b6b246b-0150-4eeb-b7a8-0b79e5f9431b" x="257" y="672" width="120" height="20" fontName="Arial" fontSize="14.0" pdfFontName="Helvetica" pdfEncoding="Cp1250" pdfEmbedded="true">
+				<expression><![CDATA[$P{transmissionDate}.format(java.time.format.DateTimeFormatter.ofPattern("dd.MM.yyyy"))]]></expression>
+			</element>
+		</band>
+	</detail>
+	<summary height="646" splitType="Stretch">
+		<element kind="staticText" uuid="b95e06c2-632b-4c3a-b596-0fdefaeb589a" x="0" y="20" width="554" height="520" fontName="Arial" fontSize="14.0" pdfFontName="Helvetica" pdfEncoding="Cp1250" pdfEmbedded="true">
+			<paragraph lineSpacing="1_1_2"/>
+			<text><![CDATA[oraz ustawy z 21 czerwca 2001 r. o ochronie praw lokatorów, mieszkaniowym zasobie gminy i o zmianie Kodeksu cywilnego.
+                                                               § 10
+Po ustaniu stosunku najmu Najemca zobowiązany jest zwrócić lokal Wynajmującemu/-cej w stanie niepogorszonym.
+                                                               § 11
+Dla zabezpieczenia roszczeń Wynajmującego/-cej z tytułu czynszu najmu oraz z tytułu naprawienia ewentualnych szkód – Najemca wpłaca kaucję w wysokości ……………….. zł. Wynajmujący/-ca potwierdza odbiór kaucji w ww. wysokości.
+                                                               § 12
+W sprawach nieuregulowanych umową zastosowanie mają przepisy ustawy o ochronie praw lokatorów, mieszkaniowym zasobie gminy i o zmianie Kodeksu cywilnego oraz przepisy Kodeksu cywilnego.
+                                                               § 13
+Zmiana umowy wymaga formy pisemnej pod rygorem nieważności.
+                                                               § 14
+Umowę sporządzono w dwóch jednobrzmiących egzemplarzach, po jednym dla każdej ze stron.
+
+
+            Wynajmujący				 	                  Najemca]]></text>
+		</element>
+		<element kind="staticText" uuid="84634f63-d0ee-4441-ab53-b9f29114fb38" x="0" y="540" width="554" height="30" vTextAlign="Bottom">
+			<text><![CDATA[              ....................................                                                                                   ....................................]]></text>
+		</element>
+		<element kind="textField" uuid="09aa2a21-438f-48b5-96ae-cb1bf05d4c05" x="460" y="174" width="120" height="20" fontName="Arial" fontSize="14.0" pdfFontName="Helvetica" pdfEncoding="Cp1250" pdfEmbedded="true">
+			<expression><![CDATA[$P{deposit}]]></expression>
+		</element>
+	</summary>
+</jasperReport>

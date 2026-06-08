@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel logowania</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/LoginPage.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/Button.css}">
+</head>
+<body>
+<div class="login-page">
+    <div th:if="${param.error}" class="login-error-message" style="color: red; text-align: center; margin-bottom: 10px;">
+        Nieprawidłowy e-mail lub hasło.
+    </div>
+    <div th:if="${param.logout}" class="login-logout-message" style="color: green; text-align: center; margin-bottom: 10px;">
+        Zostałeś pomyślnie wylogowany.
+    </div>
+
+    <form class="login-form" th:action="@{/login}" method="post">
+        <h1>Panel logowania</h1>
+
+        <label for="username">E-mail:</label>
+        <input id="username" name="username" type="email" required autofocus />
+
+        <label for="password">Hasło:</label>
+        <input id="password" name="password" type="password" required />
+
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+
+        <button type="submit" class="custom-button medium">Zaloguj się</button>
+
+
+        <div class="przyciskiluzaka" style="text-align:center; margin-top:20px;">
+
+        </div>
+        <a href="/oauth2/authorization/google">
+            <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google logo" style="width:20px; vertical-align:middle; margin-right:8px;">
+            Zaloguj się przez Google
+        </a>
+
+    </form>
+</div>
+</body>
+</html>

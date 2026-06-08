@@ -1,0 +1,9 @@
+groq:
+  api:
+   key: ${GROQ_API_KEY}
+eureka:
+  instance:
+    prefer-ip-address: false
+    hostname: localhost
+server:
+  port: 3004

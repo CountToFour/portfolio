@@ -1,0 +1,32 @@
+/* Button.css */
+.custom-button {
+    padding: 10px 20px;
+    background-color: #29dd5f;
+    color: #000000;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+    border-radius: 4px;
+    margin: 4px;
+}
+
+.custom-button:hover {
+    background-color: #85d39d;
+}
+
+.custom-button.small {
+    font-size: 12px;
+    padding: 6px 12px;
+}
+
+.custom-button.medium {
+    font-size: 16px;
+    padding: 10px 16px;
+}
+
+.custom-button.large {
+    font-size: 20px;
+    padding: 14px 24px;
+}

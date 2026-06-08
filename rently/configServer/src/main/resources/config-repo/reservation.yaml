@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: reservation
+  datasource:
+    url: jdbc:postgresql://localhost:5432/app_db
+    username: user
+    password: password
+  # Dialekt JPA
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+
+# DDL auto ? automatyczne tworzenie/tabel (tylko na etapie developmentu)
+eureka:
+  instance:
+    prefer-ip-address: false
+    hostname: localhost

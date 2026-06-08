@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: Rental-listing-service
+  cloud:
+    config:
+      enabled: true
+  config:
+    import: "configserver:http://host.docker.internal:8888"
+server:
+  port: 3002

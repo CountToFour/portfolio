@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: ai-module
+  cloud:
+    discovery:
+      enabled: true
+  config:
+    import: "configserver:http://host.docker.internal:8888"
+server:
+  port: 3004
+

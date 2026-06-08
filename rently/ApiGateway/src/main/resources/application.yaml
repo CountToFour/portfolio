@@ -1,0 +1,121 @@
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      server:
+        webflux:
+            routes:
+#              - id: auth-server
+#                uri: lb://RENTLYAUTH
+#                predicates:
+#                 - Path=/login/**
+#                 - Path=/oauth2/**
+#
+#                filters:
+#                 - PreserveHostHeader
+              - id: helloworldmicro1_route
+                uri: lb://HELLOWORLDMICRO1
+                predicates:
+                 - Path=/helloworldmicro1/**
+                filters:
+                  - SetRequestHeader=X-Forwarded-Prefix, /rentlyauth
+                  - TokenRelay
+                  - RewritePath=/helloworldmicro1/(?<segment>.*), /${segment}
+
+              - id: helloworldmicro2_route
+                uri: lb://HELLOWORLDMICRO2
+                predicates:
+                 - Path=/helloworldmicro2/**
+                filters:
+                 - SetRequestHeader=X-Forwarded-Prefix, /rentlyauth
+                 - TokenRelay
+                 - RewritePath=/helloworldmicro2/(?<segment>.*), /${segment}
+              - id: reservation_route
+                uri: lb://RESERVATION
+                predicates:
+                 - Path=/reservation/**
+                filters:
+                 - SetRequestHeader=X-Forwarded-Prefix, /rentlyauth
+                 - TokenRelay
+                 - RewritePath=/reservation/(?<segment>.*), /${segment}
+              - id: rental_listing_route
+                uri: lb://RENTAL-LISTING-SERVICE
+                predicates:
+                 - Path=/rental-listing/**
+                filters:
+                 - SetRequestHeader=X-Forwarded-Prefix, /rentlyauth
+                 - TokenRelay
+                 - RewritePath=/rental-listing/(?<segment>.*), /${segment}
+              - id: raport_route
+                uri: lb://REPORT
+                predicates:
+                 - Path=/report/**
+                filters:
+                 - SetRequestHeader=X-Forwarded-Prefix, /rentlyauth
+                 - TokenRelay
+                 - RewritePath=/report/(?<segment>.*), /${segment}
+              - id: ai_module_route
+                uri: lb://AI-MODULE
+                predicates:
+                 - Path=/ai-module/**
+                filters:
+                 - SetRequestHeader=X-Forwarded-Prefix, /rentlyauth
+                 - TokenRelay
+                 - RewritePath=/ai-module/(?<segment>.*), /${segment}
+#              - id: rentlyauth_route
+#                uri: lb://RENTLYAUTH
+#                predicates:
+#                  - Path=/rentlyauth/**
+#                filters:
+#                  - SetRequestHeader=X-Forwarded-Prefix, /rentlyauth
+#                  - TokenRelay
+#                  - RewritePath=/rentlyauth/(?<segment>.*), /${segment}
+
+  security:
+    oauth2:
+      client:
+        registration:
+          rentlyauth-client:
+            client-id: "gateway-client"
+#            client-secret: "gateway-secret"
+            client-authentication-method: none
+            authorization-grant-type: "authorization_code"
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            scope: openid, profile, email
+        provider:
+          rentlyauth-client:
+#            issuer-uri: http://host.docker.internal:8080 // to nie działa
+           issuer-uri: http://localhost:8080
+
+server:
+  port: 3000
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://host.docker.internal:8761/eureka
+#      defaultZone: http://localhost:8761/eureka
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.springframework.web.reactive.function.client.ExchangeFunctions: DEBUG
+springdoc:
+  api-docs:
+    path: /aggregate/v3/api-docs
+  swagger-ui:
+    disable-swagger-default-url: true
+    urls:
+      - name: HelloWorld 1
+        url: /helloworldmicro1/v3/api-docs
+      - name: HelloWorld 2
+        url: /helloworldmicro2/v3/api-docs
+      - name: Reservation
+        url: /reservation/v3/api-docs
+      - name: Rental Listing
+        url: /rental-listing/v3/api-docs
+      - name: Report
+        url: /report/v3/api-docs
+      - name: AI Module
+        url: /ai-module/v3/api-docs
+    use-root-path: true
