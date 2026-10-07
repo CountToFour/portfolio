@@ -1,0 +1,6 @@
+"# NOTE: this file was moved to containers/docker-compose.yml for project organization."
+# To run the compose from backend directory, use:
+#   docker compose -f containers/docker-compose.yml up -d
+# or from project root:
+#   docker compose -f backend/containers/docker-compose.yml up -d
+
